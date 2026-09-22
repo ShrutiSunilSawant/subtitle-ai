@@ -43,3 +43,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Local dev tooling (not part of the project)
+.claude/

@@ -17,7 +17,6 @@
 - [Processing Pipeline](#processing-pipeline)
 - [Configuration](#configuration)
 - [Docker Setup](#docker-setup)
-- [Future Improvements](#future-improvements)
 
 ---
 

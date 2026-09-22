@@ -399,15 +399,3 @@ Access: `http://localhost:5173`
 
 ---
 
-## Future Improvements
-
-- [ ] **Redis job queue** — replace in-memory store for multi-instance deployments
-- [ ] **GPU acceleration** — PyTorch CUDA support for faster inference
-- [ ] **WebSockets** — real-time progress updates instead of polling
-- [ ] **Tesseract OCR** — extract on-screen text from frames
-- [ ] **Speaker diarization** — label subtitles by speaker name
-- [ ] **Custom subtitle styling** — user-configurable fonts/colors
-- [ ] **Batch processing** — process multiple videos simultaneously
-- [ ] **S3 storage** — replace local file storage with cloud object store
-- [ ] **Auth** — user accounts and job history
-- [ ] **Mobile app** — React Native companion

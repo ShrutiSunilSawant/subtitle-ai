@@ -1,0 +1,54 @@
+version: "3.9"
+
+# ================================================================
+# Docker Compose — AI Subtitle & Scene Explainer
+# ================================================================
+# Services:
+#   backend  — FastAPI + Whisper + BLIP (Python)
+#   frontend — React + Vite (Node.js)
+# ================================================================
+
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: subtitle-ai-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/uploads:/app/uploads       # Persist uploaded videos
+      - ./backend/outputs:/app/outputs       # Persist processed outputs
+      - ./backend/temp:/app/temp             # Temp working files
+      - huggingface_cache:/root/.cache/huggingface   # Cache downloaded models
+    environment:
+      - WHISPER_MODEL_SIZE=base
+      - BLIP_MODEL_NAME=Salesforce/blip-image-captioning-base
+      - FRONTEND_URL=http://localhost:5173
+    restart: unless-stopped
+    # GPU support (optional — uncomment if you have NVIDIA GPU + nvidia-container-toolkit)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: subtitle-ai-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  huggingface_cache:
+    driver: local

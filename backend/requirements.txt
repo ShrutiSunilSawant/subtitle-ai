@@ -1,0 +1,33 @@
+# Web Framework
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+
+# AI / ML
+openai-whisper==20231117
+faster-whisper==1.0.3
+transformers==4.41.2
+torch==2.3.0
+torchvision==0.18.0
+Pillow==10.3.0
+
+# Video / Audio
+moviepy==1.0.3
+opencv-python==4.9.0.80
+librosa==0.10.2
+pydub==0.25.1
+ffmpeg-python==0.2.0
+soundfile==0.12.1
+webrtcvad-wheels==2.0.14
+
+# Speaker Diarization (optional)
+# pyannote.audio==4.0.4
+
+# Utilities
+python-dotenv==1.0.1
+aiofiles==23.2.1
+numpy==1.26.4
+scipy==1.13.0
+httpx==0.27.0
+pydantic==2.7.1
+pydantic-settings==2.2.1
